@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      #booking-form {
+        background-color: #1e1e1e;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+  
+      #booking-form h2 {
+        font-family: 'Arial', sans-serif;
+        color: #ffffff;
+      }
+  
+      .form-control, .form-select {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border-radius: 10px;
+        border: 1px solid #444;
+      }
+  
+      .form-control::placeholder {
+        color: #bbbbbb;
+      }
+  
+      .btn-light {
+        background-color: #ffffff;
+        color: #121212;
+      }
+      #btnReset {
+        background-color: darkorange;
+      }
+
+      #btnReset:hover {
+        background-color: rgba(255, 140, 0, 0.744);
+      }
+
+      #btnKembali {
+        background-color: red;
+      }
+
+      #btnKembali:hover {
+        background-color: rgba(255, 0, 0, 0.763);
+      }
+</style>
+
+      
+  
+     
+    </style>
+</head>
+<body style="background-color: #121212; color: #ffffff;">
+ <!-- Form Pemesanan -->
+<div id="booking-form" class="container mt-5">
+    <h2 class="text-center mb-5 text-light">Form Pemesanan Kamar</h2>
+    <form id="bookingForm">
+      <!-- Nama Pemesan -->
+      <div class="mb-3">
+        <label for="namaPemesan" class="form-label">Nama Pemesan</label>
+        <input type="text" class="form-control form-control-lg" id="namaPemesan" placeholder="Masukkan nama lengkap" required>
+      </div>
+
+      <!-- Jenis Kelamin -->
+      <div class="mb-3">
+        <label for="gender" class="form-label">Jenis Kelamin</label>
+        <select class="form-select form-select-lg" id="gender" required>
+          <option value="" disabled selected>Pilih jenis kelamin</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
+      </div>
+      <!-- Nomor Identitas -->
+      <div>
+        <label for="nomorIdentitas" class="form-label">Nomor Identitas</label>
+        <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          id="nomorIdentitas" 
+          placeholder="Masukkan nomor identitas" 
+          required>
+        <div id="errorNomorIdentitas" class="text-danger mt-2" style="font-size: 0.9em;"></div>
+      </div>
+     
+      
+
+      <!-- Tipe Kamar -->
+      <div class="mb-3">
+        <label for="roomType" class="form-label">Pilih Tipe Kamar</label>
+        <select class="form-select form-select-lg" id="roomType" required>
+          <option value="" disabled selected>Pilih jenis kamar</option>
+          <option value="Standard">Standard - Rp 350.000/malam</option>
+          <option value="Deluxe">Deluxe - Rp 500.000/malam</option>
+          <option value="Family">Family - Rp 950.000/malam</option>
+        </select>
+      </div>
+
+      <!-- Harga -->
+      <div class="mb-3">
+        <label for="price" class="form-label">Harga Kamar</label>
+        <input type="text" class="form-control form-control-lg" id="price" placeholder="Harga kamar akan muncul setelah memilih tipe" disabled style="color: #1e1e1e;">
+      </div>
+
+      <!-- Tanggal Pemesanan -->
+      <div class="mb-3">
+        <label for="tanggalPesan" class="form-label">Tanggal Pemesanan</label>
+        <input type="date" class="form-control form-control-lg" id="tanggalPesan" required>
+      </div>
+
+      <!-- Durasi Menginap -->
+      <div class="mb-3">
+        <label for="durasiMenginap" class="form-label">Durasi Menginap (dalam malam)</label>
+        <input type="number" class="form-control form-control-lg" id="durasiMenginap" placeholder="Masukkan durasi menginap" min="1" required>
+      </div>
+
+      <!-- Breakfast -->
+      <div class="mb-3">
+        <label for="breakfast" class="form-label">Pilih Fasilitas Breakfast</label>
+        <div>
+          <input type="checkbox" class="form-check-input" id="breakfast">
+          <label for="breakfast" class="form-check-label">Include Breakfast (+Rp 80.000)</label>
+        </div>
+      </div>
+
+      <!-- Total Bayar -->
+      <div class="mb-3">
+        <label for="totalBayar" class="form-label">Total Bayar</label>
+        <input type="text" class="form-control form-control-lg" id="totalBayar" placeholder="Total Bayar akan dihitung otomatis" disabled style="color: #1e1e1e;">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mb-3 text-center">
+        <button type="reset" class="btn btn-primary" id="btnReset">Cancel</button>
+        <button type="submit" class="btn btn-primary"">Pesan Sekarang</button>
+      </div>
+    </form>
+  </div>
+  <script src="pemesanan.js"></script>
+</body>
+</html>

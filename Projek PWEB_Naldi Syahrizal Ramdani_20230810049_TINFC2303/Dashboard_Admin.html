@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .nav-link {
+          color: white !important; /* Mengubah warna font menjadi hitam */
+        }
+        .nav-link.active {
+          color: black !important; /* Mengubah warna font tab aktif menjadi merah */
+        }
+      </style>
+      
+</head>
+<body style="background-color: #121212; color: #ffffff;">
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Admin Dashboard</h2>
+
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="manage-rooms-tab" data-bs-toggle="tab" data-bs-target="#manage-rooms" type="button" role="tab"> Kelola Jenis Kamar</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="manage-facilities-tab" data-bs-toggle="tab" data-bs-target="#manage-facilities" type="button" role="tab">Kelola Fasilitas Hotel</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="view-bookings-tab" data-bs-toggle="tab" data-bs-target="#view-bookings" type="button" role="tab" >Data Pemesanan Konsumen</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4">
+            <!-- Manage Rooms Tab -->
+            <div class="tab-pane fade show active" id="manage-rooms" role="tabpanel">
+                <h3>Kelola Jenis Kamar</h3>
+                <form id="roomForm">
+                    <div class="mb-3">
+                        <label for="roomType" class="form-label">Jenis Kamar</label>
+                        <input type="text" class="form-control" id="roomType" placeholder="Masukkan nama kamar">
+                    </div>
+                    <div class="mb-3">
+                        <label for="roomPrice" class="form-label">Harga per Malam</label>
+                        <input type="number" class="form-control" id="roomPrice" placeholder="Masukkan harga per malam">
+                    </div>
+                    <div class="mb-3">
+                        <label for="roomFacilities" class="form-label">Fasilitas</label>
+                        <textarea class="form-control" id="roomFacilities" placeholder="Masukkan fasilitas kamar, pisahkan dengan koma"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="roomImage" class="form-label">Unggah Gambar Kamar</label>
+                        <input type="file" class="form-control" id="roomImage" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-light">Simpan</button>
+                </form>
+
+                <h4 class="mt-5">Daftar Kamar</h4>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Jenis</th>
+                            <th>Harga</th>
+                            <th>Fasilitas</th>
+                            <th>Gambar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic Room Data -->
+                        <tr>
+                            <td>Deluxe</td>
+                            <td>Rp 500.000</td>
+                            <td>AC, TV, Wi-Fi</td>
+                            <td><img src="Foto kamar/kamar 1.jpeg" alt="Gambar Kamar" width="50"></td>
+                            <td><button class="btn btn-sm btn-warning">Edit</button> <button class="btn btn-sm btn-danger">Hapus</button></td>
+                        </tr>
+                        <!-- More rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Manage Facilities Tab -->
+            <div class="tab-pane fade" id="manage-facilities" role="tabpanel">
+                <h3>Kelola Fasilitas Hotel</h3>
+                <form id="facilityForm">
+                    <div class="mb-3">
+                        <label for="facilityName" class="form-label">Nama Fasilitas</label>
+                        <input type="text" class="form-control" id="facilityName" placeholder="Masukkan nama fasilitas">
+                    </div>
+                    <div class="mb-3">
+                        <label for="facilityDescription" class="form-label">Deskripsi Fasilitas</label>
+                        <textarea class="form-control" id="facilityDescription" placeholder="Masukkan deskripsi fasilitas"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="facilityImage" class="form-label">Unggah Gambar Fasilitas</label>
+                        <input type="file" class="form-control" id="facilityImage" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-light">Simpan</button>
+                </form>
+            </div>
+
+            <!-- View Bookings Tab -->
+            <div class="tab-pane fade" id="view-bookings" role="tabpanel">
+                <h3>Data Pemesanan Konsumen</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID Pemesanan</th>
+                            <th>Nama Pemesan</th>
+                            <th>Tipe Kamar</th>
+                            <th>Tanggal Pemesanan</th>
+                            <th>Total Bayar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic Booking Data -->
+                        <tr>
+                            <td>001</td>
+                            <td>John Doe</td>
+                            <td>Deluxe</td>
+                            <td>2025-01-10</td>
+                            <td>Rp 1.500.000</td>
+                        </tr>
+                        <!-- More rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
